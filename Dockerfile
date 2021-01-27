@@ -5,7 +5,6 @@ RUN mkdir -p /colorstripe/video /app/colorstripe/output
 WORKDIR /colorstripe
 
 ADD ./colorstripe.py /colorstripe
-ADD ./colorstripe.sh /colorstripe
 
 ENV WIDTH=8760
 ENV HEIGHT=876
@@ -15,4 +14,4 @@ RUN apt-get update \
  && pip install numpy opencv-python \
  && chmod +x colorstripe.sh
 
-ENTRYPOINT ["colorstripe.sh", "/colorstripe/video/source.mp4", "$WIDTH", "$HEIGHT"]
+ENTRYPOINT ["python", "colorstripe.py", "/colorstripe/video/source.mp4", "$WIDTH", "$HEIGHT"]
