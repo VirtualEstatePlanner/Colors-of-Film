@@ -11,7 +11,6 @@ ENV HEIGHT=876
 
 RUN apt-get update \
  && apt-get install -y python-opencv gstreamer1.0-libav ffmpeg \
- && pip install numpy opencv-python \
- && chmod +x colorstripe.sh
+ && pip install numpy opencv-python
 
 ENTRYPOINT ["python", "colorstripe.py", "/colorstripe/video/source.mp4", "$WIDTH", "$HEIGHT"]
