@@ -50,7 +50,7 @@ def colorsOfFilm(path, imgWidth, imgHeight):
     n,d = new_image.shape
     image = np.repeat(new_image, imgHeight, axis=0)
     image = np.reshape(image, (n, imgHeight, d))
-    cv2.imwrite('/colorstripe/output/output.png', image.transpose(1,0,2))
+    cv2.imwrite('/output/output.png', image.transpose(1,0,2))
 
 # run the program
 colorsOfFilm(path, imgWidth, imgHeight)
