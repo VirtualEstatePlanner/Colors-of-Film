@@ -1,4 +1,4 @@
-import numpy as np
+import numpy
 import cv2
 import os
 import sys
@@ -30,9 +30,9 @@ def colorsOfFilm(path, imgWidth, imgHeight):
     while success:
       try:
           success,image = vidcap.read()
-          avg_row_col = np.average(image, axis=0)
-          avg_color = np.average(avg_row_col, axis=0)
-          avg_color = np.uint8(avg_color)
+          avg_row_col = numpy.average(image, axis=0)
+          avg_color = numpy.average(avg_row_col, axis=0)
+          avg_color = numpy.uint8(avg_color)
           frames.append(avg_color)
       except IndexError:
           break
@@ -41,15 +41,15 @@ def colorsOfFilm(path, imgWidth, imgHeight):
     new_image = []
     frame_per_bucket_as_float = len(frames) / imgWidth
     frame_per_bucket = int(frame_per_bucket_as_float)
-    for frames in np.split(frames, range(frame_per_bucket, len(frames), frame_per_bucket)):
-        av = np.average(frames, axis=0)
+    for frames in numpy.split(frames, range(frame_per_bucket, len(frames), frame_per_bucket)):
+        av = numpy.average(frames, axis=0)
         new_image.append(av)
 
-    new_image = np.array(new_image)
+    new_image = numpy.array(new_image)
 
     n,d = new_image.shape
-    image = np.repeat(new_image, imgHeight, axis=0)
-    image = np.reshape(image, (n, imgHeight, d))
+    image = numpy.repeat(new_image, imgHeight, axis=0)
+    image = numpy.reshape(image, (n, imgHeight, d))
     cv2.imwrite('/output/output.png', image.transpose(1,0,2))
 
 # run the program
