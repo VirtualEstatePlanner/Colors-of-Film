@@ -1,4 +1,4 @@
-# Colors Of Film
+# colorstripe
 
 Parses the average colors per frame of a video file and compress it into a .png image
 
