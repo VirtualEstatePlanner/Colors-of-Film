@@ -11,6 +11,7 @@ Parses the average colors per frame of a video file and compress it into a .png 
 optional `docker run` flags, defaults to 8760 x 432:
 
 `-e WIDTH=[width_in_pixels_of_output_image]`
+
 `-e HEIGHT=[height_in_pixels_of_output_image])`
 
 #### Requirements:
