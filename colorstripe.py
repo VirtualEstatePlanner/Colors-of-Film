@@ -3,18 +3,18 @@ import cv2
 import os
 import sys
 
-# make sure the user enters in the needed values
+# confirm the user has given all arguments
 if len(sys.argv) < 2:
-    print 'Please enter video path'
+    print('Please enter video path')
     sys.exit()
 elif len(sys.argv) < 3:
-    print 'Please enter output image height'
+    print('Please enter output image height')
     sys.exit()
 elif len(sys.argv) < 4:
-    print 'Please enter output image width'
+    print('Please enter output image width')
     sys.exit()
 
-# set user variables
+# convert CLI arguments to program variables
 path = os.path.expanduser(sys.argv[1])
 imgWidth = int(os.path.expanduser(sys.argv[2]))
 imgHeight = int(os.path.expanduser(sys.argv[3]))
@@ -25,7 +25,7 @@ def colorsOfFilm(path, imgWidth, imgHeight):
 
     frames = []
 
-    # while there is still a frame, process it
+# check if there are remaining frames to process, and if there are then process them
     success = True
     while success:
       try:
@@ -37,9 +37,10 @@ def colorsOfFilm(path, imgWidth, imgHeight):
       except IndexError:
           break
 
-    # get the average of the bucket size
+# get the average of the bucket size
     new_image = []
-    frame_per_bucket = len(frames) / imgWidth
+    frame_per_bucket_as_float = len(frames) / imgWidth
+    frame_per_bucket = int(frame_per_bucket_as_float)
     for frames in np.split(frames, range(frame_per_bucket, len(frames), frame_per_bucket)):
         av = np.average(frames, axis=0)
         new_image.append(av)
