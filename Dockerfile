@@ -1,16 +1,14 @@
 FROM python:latest
 
-RUN mkdir -p /colorstripe/video /colorstripe/output
+RUN mkdir /colorstripe /output
 
-WORKDIR /colorstripe
-
-ADD ./colorstripe.py /colorstripe
+ADD ./colorstripe.py /
 
 ENV WIDTH=8760
-ENV HEIGHT=876
+ENV HEIGHT=432
 
 RUN apt-get update \
  && apt-get install -y python-opencv gstreamer1.0-libav ffmpeg \
  && pip install numpy opencv-python
 
-ENTRYPOINT ["python", "colorstripe.py", "/colorstripe/video/source.mp4", "$WIDTH", "$HEIGHT"]
+ENTRYPOINT ["python", "colorstripe.py", "/source.mp4", "$WIDTH", "$HEIGHT"]
