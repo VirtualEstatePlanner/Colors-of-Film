@@ -1,6 +1,6 @@
 FROM python:latest
 
-RUN mkdir -p /colorstripe/video /app/colorstripe/output
+RUN mkdir -p /colorstripe/video /colorstripe/output
 
 WORKDIR /colorstripe
 
