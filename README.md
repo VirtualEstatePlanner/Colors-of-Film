@@ -3,14 +3,13 @@
 Parses the average colors per frame of a movie and compress it into an email 
 
 #### How to use:
-`python colorsOfFilm.python [file path] [width] [height]`
+
+`docker build -t colorstripe .`
+
+
+`docker run --volume [path_to_video_source_file.mp4]:/app/video_color_timeline/video/source.mp4 --volume [path_to_your_directory]/Colors-of-Film/output/:/app/video_color_timeline/output colorstripe python colorsOfFilm.python /app/video_color_timeline/video/source.mp4 [width] [height]`
 
 #### Requirements:
-   - Numpy
-   - OpenCV
-
-#### Example:
-
-##### Harry Potter and the Prizoner of Azkaban (Can you guess when the patronus is used?)
-
-<img style="float: right;" src="output.png" height="250" >
+   - Docker
+   - a video file
+   - Patience
