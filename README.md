@@ -8,7 +8,7 @@ Parses the average colors per frame of a video file and compress it into a .png 
 
 `docker run -v [full_path_to_your_video_file.mp4]:/source.mp4 -v [full_path_to_your_output_directory]:/output colorstripe`
 
-optional `docker run` flags, defaults to 8760 x 432:
+optional `docker run` flags, defaults to 4380 x 216:
 
 `-e WIDTH=[width_in_pixels_of_output_image]`
 
