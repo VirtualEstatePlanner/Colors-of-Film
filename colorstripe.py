@@ -19,6 +19,15 @@ path = os.path.expanduser(sys.argv[1])
 imgWidth = int(os.path.expanduser(sys.argv[2]))
 imgHeight = int(os.path.expanduser(sys.argv[3]))
 
+print("input parameters:")
+print("source video file:")
+print(path)
+print("output image width:")
+print(imgWidth)
+print("output image height:")
+print(imgHeight)
+
+
 def colorsOfFilm(path, imgWidth, imgHeight):
     vidcap = cv2.VideoCapture(path)
     success,image = vidcap.read()
@@ -40,7 +49,11 @@ def colorsOfFilm(path, imgWidth, imgHeight):
 # get the average of the bucket size
     new_image = []
     frame_per_bucket_as_float = len(frames) / imgWidth
+    print("number of frames as floating point number:")
+    print(frame_per_bucket_as_float)
     frame_per_bucket = int(frame_per_bucket_as_float)
+    print("number of frames as integer:")
+    print(frame_per_bucket)
     for frames in numpy.split(frames, range(frame_per_bucket, len(frames), frame_per_bucket)):
         av = numpy.average(frames, axis=0)
         new_image.append(av)
